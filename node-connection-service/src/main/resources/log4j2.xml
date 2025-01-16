@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="warn" name="CONVN" packages="">
+
+	<Properties>
+		<Property name="LOG_PATH">{LOG_PATH}</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="node-connection-service-logs"
+			fileName="C:/logs/node-connection-service.log"
+			filePattern="C:/logs/node-connection-service-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout>
+				<Pattern>[%d][%t][%C{1}(%L)]-%m%n</Pattern>
+			</PatternLayout>
+
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="200 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="50" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+
+		<Logger name="org.hibernate.SQL" level="debug"
+			additivity="false">
+			<AppenderRef ref="node-connection-service-logs" />
+		</Logger>
+
+		<logger name="org.springframework.cache" level="trace"
+			additivity="false">
+			<appender-ref ref="node-connection-service-logs" />
+		</logger>
+
+		<Root level="INFO">
+			<AppenderRef ref="node-connection-service-logs" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>
