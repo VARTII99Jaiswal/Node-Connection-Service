@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "5b6bbcaa-d1f3-4fff-8dcc-011d7c064016",
+		"name": "node-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41174288"
+	},
+	"item": [
+		{
+			"name": "GetConnectionGrpName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8085/node-service/v1/virtual_node_name/vnode4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"node-service",
+						"v1",
+						"virtual_node_name",
+						"vnode4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateConnectionGroup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"groupName\": \"Connection Group #2\",\r\n    \"virtualNodes\": [\r\n        {\r\n            \"virtualNodeName\": \"vnode6\",\r\n            \"parentName\": null\r\n        },\r\n        {\r\n            \"virtualNodeName\": \"vnode7\",\r\n            \"parentName\": \"vnode1\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/node-service/v1/connection_group",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"node-service",
+						"v1",
+						"connection_group"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
